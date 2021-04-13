@@ -31,7 +31,8 @@ VOLUME ["/var/log/glusterfs"]
 #config
 VOLUME ["/etc/glusterfs"]
 
-ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+#ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+CMD ["/usr/sbin/glusterd","-N"]
 
 HEALTHCHECK CMD /healthcheck.sh
 
