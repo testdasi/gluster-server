@@ -2,10 +2,9 @@
 
 # install more packages
 apt-get -y update \
-    && apt-get -y install systemd
+    && apt-get -y install attr software-properties-common psmisc
 
 apt-get -y install glusterfs-server
-systemctl enable glusterd
 
 # Clean up
 apt-get -y autoremove \
