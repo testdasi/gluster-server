@@ -1,5 +1,5 @@
 ## gluster-server
-A docker running gluster server. This primarily targets users of Unraid (and similar NAS OS) for which gluster cannot be installed but docker can. It then allows the host to run just like a normal gluster peer (e.g. to use Unraid as persistent storage for Kubernetes / Docker Swarm)
+A docker running gluster server. This primarily targets users of Unraid (and similar NAS OS) for which gluster cannot be installed but docker can. It then allows the host to run just like a normal gluster peer (e.g. to use Unraid as persistent storage for Kubernetes / Docker Swarm).
 
 ## Bits and bobs:
 * Built for both Unraid and Raspberry Pi 4 but should work in other Linux amd64 / arm32v7 / arm32v6 / i386 docker environments.
@@ -36,3 +36,4 @@ A docker running gluster server. This primarily targets users of Unraid (and sim
 * If you like my work, [a donation to my burger fund](https://paypal.me/mersenne) is very much appreciated.
 
 [![Donate](https://raw.githubusercontent.com/testdasi/testdasi-unraid-repo/master/donate-button-small.png)](https://paypal.me/mersenne). 
+
