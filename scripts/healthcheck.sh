@@ -9,7 +9,7 @@ if [ -z "$pidlist" ]
 then
     echo '[ERROR] Healthcheck failed. Attempting cure.'
     crashed=$(( $crashed + 1 ))
-    systemctl start glusterd
+    glusterd --log-level ERROR
 fi
 
 if (( $crashed > 0 ))
