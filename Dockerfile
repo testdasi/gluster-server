@@ -5,8 +5,34 @@ FROM ${FRM}:${TAG}
 ARG FRM
 ARG TAG
 
-COPY ./install.sh /
+# Each brick in a volume needs a port in range 49152 - 49155. Here we default to 10 ports
+ENV BRICK_PORT_RANGE 49152-49162
+
+EXPOSE 24007/tcp \
+    24008/tcp \
+    38465/tcp \
+    38466/tcp \
+    38467/tcp \
+    38469/tcp \
+    2049/tcp \
+    111/tcp \
+    111/udp \
+    ${BRICK_PORT_RANGE}/tcp
+
+ADD scripts /
+
 RUN /bin/bash /install.sh \
     && rm -f /install.sh
+
+#metadata
+VOLUME ["/var/lib/glusterd"]
+#log
+VOLUME ["/var/log/glusterfs"]
+#config
+VOLUME ["/etc/glusterfs"]
+
+ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+
+HEALTHCHECK CMD /healthcheck.sh
 
 RUN echo "$(date "+%d.%m.%Y %T") Built from ${FRM} with tag ${TAG}" >> /build_date.info
