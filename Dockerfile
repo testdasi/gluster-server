@@ -25,14 +25,14 @@ RUN /bin/bash /install.sh \
     && rm -f /install.sh
 
 #metadata
-#VOLUME ["/var/lib/glusterd"]
+VOLUME ["/var/lib/glusterd"]
 #log
-#VOLUME ["/var/log/glusterfs"]
+VOLUME ["/var/log/glusterfs"]
 #config
-#VOLUME ["/etc/glusterfs"]
+VOLUME ["/etc/glusterfs"]
 
-#ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
-CMD ["/usr/sbin/glusterd","-N"]
+ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
+#CMD ["/usr/sbin/glusterd","-N"]
 
 HEALTHCHECK CMD /healthcheck.sh
 
