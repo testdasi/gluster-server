@@ -1,7 +1,7 @@
 ## gluster-server
 A docker running gluster server. This primarily targets users of Unraid (and similar NAS OS) for which gluster cannot be installed but docker can. It then allows the host to run just like a normal gluster peer.
 
-## Notes:
+## Bits and bobs:
 * Built for both Unraid and Raspberry Pi 4 but should work in other Linux amd64 / arm32v7 / arm32v6 / i386 docker environments.
 * I have only tested (and used) this with privileged=true. This is frowned upon by some as a very bad case of misconfiguration (e.g. wrong volume map) may harm the host, which kinda defeats the purpose of using docker. Of course, those folks haven't tried to install gluster on Slackware (e.g. Unraid), which is impossible.
   * Apparently, you can use volume "z" instead of "rw" to avoid needing privileged but I haven't tested that since privileged works well for me.
@@ -14,7 +14,7 @@ A docker running gluster server. This primarily targets users of Unraid (and sim
   * /var/log/glusterfs (for logs)
 * Optionally, also map these
   * /etc/hosts (for persistent hosts file (not to be confused with docker host!) so you don't have to refer to peers with ip - because a lot of the gluster guides out there seem to be allergic to ip addresses)
-  * A folder for the brick (to allow easy access to the gluster bricks e.g. storing gluster bricks on Unraid cache drive
+  * A folder for the brick (to allow easy access to the gluster bricks e.g. storing gluster bricks on Unraid cache drive - which is the main reason I built this)
 * Based on Debian Buster base image mainly because Raspbian Buster is derived from the same. This allows easier development, testing and building on my end.
 
 ## Unraid example
