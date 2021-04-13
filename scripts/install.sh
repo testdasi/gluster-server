@@ -2,9 +2,7 @@
 
 # install more packages
 apt-get -y update \
-    && apt-get -y install attr software-properties-common psmisc
-
-apt-get -y install glusterfs-server
+    && apt-get -y install attr psmisc glusterfs-server
 
 # Clean up
 apt-get -y autoremove \
