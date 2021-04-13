@@ -30,6 +30,8 @@ VOLUME ["/var/lib/glusterd"]
 VOLUME ["/var/log/glusterfs"]
 #config
 VOLUME ["/etc/glusterfs"]
+#data
+VOLUME ["/gluster"]
 
 ENTRYPOINT ["tini", "--", "/entrypoint.sh"]
 #CMD ["/usr/sbin/glusterd","-N"]
