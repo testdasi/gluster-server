@@ -2,9 +2,9 @@
 
 # install more packages
 apt-get -y update \
-    && apt-get -y install glusterfs-server
+    && apt-get -y install systemd
 
-# run glusterd service at start up
+apt-get -y install glusterfs-server
 systemctl enable glusterd
 
 # Clean up
