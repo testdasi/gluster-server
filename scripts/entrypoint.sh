@@ -7,8 +7,12 @@ else
     cp -n /glusterd.vol /etc/glusterfs/
 fi
 
-echo '[info] Start glusterd'
+echo '[info] Starting glusterd.'
 glusterd --log-level ERROR
+
+echo '[info] Wait 10s for things to settle down.'
+sleep_time=3600
+sleep $sleep_time
 
 echo '[info] Not much else to do...'
 sleep_time=3600
