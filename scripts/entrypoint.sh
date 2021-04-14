@@ -17,11 +17,14 @@ echo ''
 
 if [ -z "$MOUNT_PATH" ] || [ -z "$GLUSTER_VOL" ];
 then
-  echo '[info] Mount variables not set (or set incorrectly). Skip mounting.'  
+  echo '[info] Mount variables not set (or set incorrectly). Skip mounting.'
 else
-  echo '[info] Attempting to mount...'  
+  echo '[info] Mount variables are set.'
   for i in $(echo $GLUSTER_VOL | sed "s/,/ /g")
   do
+    echo "[info] Unmount $MOUNT_PATH\/$i"
+    fusermount -uz $MOUNT_PATH/$i
+    echo "[info] Mount $i at $MOUNT_PATH"
     mount.glusterfs localhost:/$i $MOUNT_PATH/$i
   done
 fi
