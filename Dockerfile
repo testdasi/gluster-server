@@ -7,6 +7,8 @@ ARG TAG
 
 # Each brick in a volume needs a port in range 49152 - 49155. Here we default to 10 ports
 ENV BRICK_PORT_RANGE 49152-49162
+ENV MOUNT_PATH
+ENV GLUSTER_VOL
 
 EXPOSE 24007/tcp \
     24008/tcp \
