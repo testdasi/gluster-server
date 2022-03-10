@@ -1,4 +1,4 @@
-ARG FRM='testdasi/debian-buster-slim-base'
+ARG FRM='testdasi/debian-slim-base'
 ARG TAG='latest'
 
 FROM ${FRM}:${TAG}
